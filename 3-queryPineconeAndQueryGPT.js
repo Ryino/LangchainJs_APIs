@@ -40,7 +40,7 @@ export const queryPineconeVectorStoreAndQueryLLM = async (
   if (queryResponse.matches.length) {
     // Create an OpenAI instance and load the QAStuffChain
     const llm = new OpenAI({
-      modelName: "gpt-3.5-turbo",
+      modelName: "gpt-3.5-turbo",// use davinci for better results ( line 44)
       // modelName: "text-davinci-002",
       temperature: 0,
     });
