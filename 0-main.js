@@ -23,7 +23,7 @@ const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, "public")));
 
 const vectorDimension = 1536;
-const indexName = "rayyan";
+const indexName = "index_name";//index name 
 let client;
 let docs;
 
@@ -70,40 +70,6 @@ app.get("/update", uploadFile, async (req, res) => {
   res.send(`Pinecone data for user ${userId} updated.`);
 });
 
-// app.get("/chat", async (req, res) => {
-//   const userId = req.query.userId;
-//   let sessionId = req.query.sessionId;
-//   let question = req.query.question;
-//   if (!sessionId) {
-//     sessionId = getRandomNumber(1, 1000);
-//   } else;
-
-//   if (!sessionHistory[sessionId]) {
-//     sessionHistory[sessionId] = [];
-//   } else;
-
-//   history = sessionHistory[sessionId];
-//   const combinedHistory = history.map((item) => item.message).join("\n"); // error
-//   const fullQuestion = combinedHistory + "\n" + question;
-
-//   sessionHistory[sessionId].push({
-//     message: `Keeping this in mind ${question} Answer this question`,
-//   });
-
-//   const answer = await queryPineconeVectorStoreAndQueryLLM(
-//     client,
-//     indexName,
-//     userId,
-//     fullQuestion
-//   );
-
-//   res.status(200).json({
-//     sessionId,
-//     userId,
-//     answer,
-//     fullQuestion,
-//   });
-// });
 
 app.get("/query", async (req, res) => {
   const userId = req.query.userId;
